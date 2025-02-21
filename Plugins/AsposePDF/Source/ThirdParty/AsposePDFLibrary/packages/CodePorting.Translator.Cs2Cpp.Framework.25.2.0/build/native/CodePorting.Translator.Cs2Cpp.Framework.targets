@@ -1,0 +1,39 @@
+﻿<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Force-Enable-codeporting-translator-cs-cpp-framework)' == '' And ((!$(PlatformToolset.Contains('v14'))) Or ('$(Platform)' != 'x64' And '$(Platform)' != 'Win32') Or '$(ApplicationType)' != '')">
+    <Disable-codeporting-translator-cs-cpp-framework>true</Disable-codeporting-translator-cs-cpp-framework>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Force-Disable-codeporting-translator-cs-cpp-framework)' != ''">
+    <Disable-codeporting-translator-cs-cpp-framework>true</Disable-codeporting-translator-cs-cpp-framework>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Disable-codeporting-translator-cs-cpp-framework)' != 'true'">
+    <Link>
+      <AdditionalDependencies Condition="'$(Configuration)' == 'Debug' And '$(Platform)' == 'x64'">$(MSBuildThisFileDirectory)lib\codeporting.translator.cs2cpp.framework_vc14x64d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)' == 'Release' And '$(Platform)' == 'x64'">$(MSBuildThisFileDirectory)lib\codeporting.translator.cs2cpp.framework_vc14x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)' == 'Debug' And '$(Platform)' == 'Win32'">$(MSBuildThisFileDirectory)lib\codeporting.translator.cs2cpp.framework_vc14x86d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)' == 'Release' And '$(Platform)' == 'Win32'">$(MSBuildThisFileDirectory)lib\codeporting.translator.cs2cpp.framework_vc14x86.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'Debug' And '$(Platform)' == 'x64' And '$(Disable-codeporting-translator-cs-cpp-framework)' != 'true'">
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)lib\codeporting.translator.cs2cpp.framework_vc14x64d.dll" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'Release' And '$(Platform)' == 'x64' And '$(Disable-codeporting-translator-cs-cpp-framework)' != 'true'">
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)lib\codeporting.translator.cs2cpp.framework_vc14x64.dll" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'Debug' And '$(Platform)' == 'Win32' And '$(Disable-codeporting-translator-cs-cpp-framework)' != 'true'">
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)lib\codeporting.translator.cs2cpp.framework_vc14x86d.dll" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'Release' And '$(Platform)' == 'Win32' And '$(Disable-codeporting-translator-cs-cpp-framework)' != 'true'">
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)lib\codeporting.translator.cs2cpp.framework_vc14x86.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="$(MSBuildThisFileDirectory)tools\aspose_types.natvis" Condition="Exists('$(MSBuildThisFileDirectory)tools\aspose_types.natvis')"/>
+    <Natvis Include="$(MSBuildThisFileDirectory)misc\natvis\aspose_types.natvis" Condition="Exists('$(MSBuildThisFileDirectory)misc\natvis\aspose_types.natvis')"/>
+  </ItemGroup>
+  <Target Name="PlatformCheck" BeforeTargets="PrepareForBuild">
+    <Error Condition="!$(PlatformToolset.Contains('v14'))" Text="CodePorting.Translator Cs2Cpp Framework Library error: Only 'v14x' toolset is supported." />
+    <Error Condition="'$(Platform)' != 'x64' And '$(Platform)' != 'Win32'" Text="CodePorting.Translator Cs2Cpp Framework Library error: Only 'x64' and 'Win32' platforms are supported, but the current platform is '$(Platform)'." />
+  </Target>
+</Project>

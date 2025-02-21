@@ -8,30 +8,19 @@ public class AsposePDFLibrary : ModuleRules
 	public AsposePDFLibrary(ReadOnlyTargetRules Target) : base(Target)
 	{
 		Type = ModuleType.External;
-		PublicSystemIncludePaths.Add("$(ModuleDir)/Public");
 
-		if (Target.Platform == UnrealTargetPlatform.Win64)
-		{
-			// Add the import library
-			PublicAdditionalLibraries.Add(Path.Combine(ModuleDirectory, "x64", "Release", "ExampleLibrary.lib"));
-
-			// Delay-load the DLL, so we can load it from the right place first
-			PublicDelayLoadDLLs.Add("ExampleLibrary.dll");
-
-			// Ensure that the DLL is staged along with the executable
-			RuntimeDependencies.Add("$(PluginDir)/Binaries/ThirdParty/AsposePDFLibrary/Win64/ExampleLibrary.dll");
-		}
-		else if (Target.Platform == UnrealTargetPlatform.Mac)
-		{
-			PublicDelayLoadDLLs.Add(Path.Combine(ModuleDirectory, "Mac", "Release", "libExampleLibrary.dylib"));
-			RuntimeDependencies.Add("$(PluginDir)/Source/ThirdParty/AsposePDFLibrary/Mac/Release/libExampleLibrary.dylib");
-		}
-		else if (Target.Platform == UnrealTargetPlatform.Linux)
-		{
-			string ExampleSoPath = Path.Combine("$(PluginDir)", "Binaries", "ThirdParty", "AsposePDFLibrary", "Linux", "x86_64-unknown-linux-gnu", "libExampleLibrary.so");
-			PublicAdditionalLibraries.Add(ExampleSoPath);
-			PublicDelayLoadDLLs.Add(ExampleSoPath);
-			RuntimeDependencies.Add(ExampleSoPath);
-		}
+		PublicAdditionalLibraries.Add(Path.Combine(ModuleDirectory, "x64", "Release", "AsposeHelper.lib"));
+		
+		PublicDelayLoadDLLs.Add("AsposeHelper.dll");
+		RuntimeDependencies.Add(Path.Combine(ModuleDirectory, "x64", "Release", "AsposeHelper.dll"));
+		
+		PublicDelayLoadDLLs.Add("codeporting.translator.cs2cpp.framework_vc14x64.dll");
+		RuntimeDependencies.Add(Path.Combine(ModuleDirectory, "x64", "Release", "codeporting.translator.cs2cpp.framework_vc14x64.dll"));
+		
+		PublicDelayLoadDLLs.Add("aspose_cpp_vc14x64.dll");
+		RuntimeDependencies.Add(Path.Combine(ModuleDirectory, "x64", "Release", "aspose_cpp_vc14x64.dll"));
+		
+		PublicDelayLoadDLLs.Add("Aspose.Pdf.Cpp_vc14x64.dll");
+		RuntimeDependencies.Add(Path.Combine(ModuleDirectory, "x64", "Release", "Aspose.Pdf.Cpp_vc14x64.dll"));
 	}
 }

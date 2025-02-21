@@ -8,11 +8,12 @@ class FAsposePDFModule : public IModuleInterface
 {
 public:
 
-	/** IModuleInterface implementation */
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
 
 private:
-	/** Handle to the test dll we will load */
-	void*	ExampleLibraryHandle;
+	void*	LibraryHandle_AsposeHelper;
+	void*	LibraryHandle_AsposePdfCpp;
+	void*	LibraryHandle_AsposeCpp;
+	void*	LibraryHandle_CodeportingTranslator;
 };

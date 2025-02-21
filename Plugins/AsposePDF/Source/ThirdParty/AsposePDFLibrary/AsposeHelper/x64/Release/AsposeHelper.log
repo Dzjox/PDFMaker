@@ -1,0 +1,10 @@
+﻿  pch.cpp
+  AsposeHelper.cpp
+  !!! GetCurrentDirectory defined, please do not include windows.h manually
+  dllmain.cpp
+     Creating library C:\Projects\PDFMaker\Plugins\AsposePDF\Source\ThirdParty\AsposeHelper\x64\Release\AsposeHelper.lib and object C:\Projects\PDFMaker\Plugins\AsposePDF\Source\ThirdParty\AsposeHelper\x64\Release\AsposeHelper.exp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 193 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  AsposeHelper.vcxproj -> C:\Projects\PDFMaker\Plugins\AsposePDF\Source\ThirdParty\AsposeHelper\x64\Release\AsposeHelper.dll

@@ -26,6 +26,7 @@ public class AsposePDF : ModuleRules
 			new string[]
 			{
 				"Core",
+				"CoreUObject",
 				"AsposePDFLibrary",
 				"Projects"
 				// ... add other public dependencies that you statically link with here ...
