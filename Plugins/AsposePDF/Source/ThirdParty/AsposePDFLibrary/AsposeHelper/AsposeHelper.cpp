@@ -9,15 +9,14 @@ using namespace Aspose::Pdf::Text;
 
 namespace AsposeHelper
 {
-	void CreatePDF() 
+	void CreatePDF(std::vector<std::string> Lines, std::string ImagePath)
 	{
-		std::cout << "Creating PDF" << "\n";
-
 		// ExStart:CreatePdf	
 		auto doc = MakeObject<Document>();
 		auto pages = doc->get_Pages();
 		pages->Add();
 
+		//std::cout << "hello 1" << "\n";
 
 		// Numeration of Pages starts from 1
 		auto page = pages->idx_get(1);
@@ -25,49 +24,60 @@ namespace AsposeHelper
 
 		paragraps->Add(MakeObject<TextFragment>(u"Hello World!"));
 
-		std::cout << "Creating PDF 1" << "\n";
+		SmartPtr<TextFragment> textFragment;
+		SmartPtr<TextFragmentState> textFragmentState;
 
-		auto text = MakeObject<TextFragment>(u"This example is created by Aspose.Pdf for C++.");
-		auto ts = text->get_TextState();
+		for (int i = 0; i < Lines.size(); i++)
+		{
+			textFragment = MakeObject<TextFragment>(String(Lines[i]));
+			textFragmentState = textFragment->get_TextState();
+			textFragmentState->set_FontSize(26);
+			textFragmentState->set_FontStyle(FontStyles::Italic);
+			paragraps->Add(textFragment);
 
-		std::cout << "Creating PDF 2" << "\n";
+		}
 
-		ts->set_FontSize(16);
-		ts->set_FontStyle(FontStyles::Italic);
-		paragraps->Add(text);
-
-		std::cout << "Creating PDF 3" << "\n";
+		auto imageStream = System::IO::File::OpenRead(String(ImagePath));
+		double x = 100.0, y = 600.0, width = 200.0, height = 200.0;
+		auto rect = MakeObject<Aspose::Pdf::Rectangle>(x, y, x + width, y + height);
+		page->AddImage(imageStream, rect);
 
 		doc->Save(u"input_out.pdf");
-
-		std::cout << "Pdf file created successfully." << "\n";
-		//// ExEnd:CreatePdf
-		////Console::WriteLine(u"Pdf file created successfully.");
 	}
 
-	void CreatePPTX()
+	void CreatePPTX(std::vector<std::string> Lines, std::string ImagePath)
 	{
-		std::cout << "Creating PPTX" << "\n";
+		// ExStart:CreatePdf	
+		auto doc = MakeObject<Document>();
+		auto pages = doc->get_Pages();
+		pages->Add();
 
-		//// ExStart:CreatePdf	
-		//auto doc = MakeObject<Document>();
-		//auto pages = doc->get_Pages();
-		//pages->Add();
-		//// Numeration of Pages starts from 1
-		//auto page = pages->idx_get(1);
-		//auto paragraps = page->get_Paragraphs();
+		//std::cout << "hello 1" << "\n";
 
-		//paragraps->Add(MakeObject<TextFragment>(u"Hello World!"));
+		// Numeration of Pages starts from 1
+		auto page = pages->idx_get(1);
+		auto paragraps = page->get_Paragraphs();
 
-		//auto text = MakeObject<TextFragment>(u"This example is created by Aspose.Pdf for C++.");
-		//auto ts = text->get_TextState();
+		paragraps->Add(MakeObject<TextFragment>(u"Hello World!"));
 
-		//ts->set_FontSize(16);
-		//ts->set_FontStyle(FontStyles::Italic);
-		//paragraps->Add(text);
+		SmartPtr<TextFragment> textFragment;
+		SmartPtr<TextFragmentState> textFragmentState;
 
-		//doc->Save(u"..\\Data\\Text\\input_out.pptx", (SaveFormat) 3);
-		//// ExEnd:CreatePdf
-		////Console::WriteLine(u"Pptx file created successfully.");
+		for (int i = 0; i < Lines.size(); i++)
+		{
+			textFragment = MakeObject<TextFragment>(String(Lines[i]));
+			textFragmentState = textFragment->get_TextState();
+			textFragmentState->set_FontSize(26);
+			textFragmentState->set_FontStyle(FontStyles::Italic);
+			paragraps->Add(textFragment);
+
+		}
+
+		auto imageStream = System::IO::File::OpenRead(String(ImagePath));
+		double x = 100.0, y = 600.0, width = 200.0, height = 200.0;
+		auto rect = MakeObject<Aspose::Pdf::Rectangle>(x, y, x + width, y + height);
+		page->AddImage(imageStream, rect);
+
+		doc->Save(u"input_out.pptx", (SaveFormat) 3);
 	}
 }

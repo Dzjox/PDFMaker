@@ -1,5 +1,5 @@
-^C:\PROJECTS\PDFMAKER\PLUGINS\ASPOSEPDF\SOURCE\THIRDPARTY\ASPOSEHELPER\ASPOSEHELPER\X64\RELEASE\ASPOSEHELPER.OBJ|C:\PROJECTS\PDFMAKER\PLUGINS\ASPOSEPDF\SOURCE\THIRDPARTY\ASPOSEHELPER\ASPOSEHELPER\X64\RELEASE\DLLMAIN.OBJ|C:\PROJECTS\PDFMAKER\PLUGINS\ASPOSEPDF\SOURCE\THIRDPARTY\ASPOSEHELPER\ASPOSEHELPER\X64\RELEASE\PCH.OBJ
-C:\Projects\PDFMaker\Plugins\AsposePDF\Source\ThirdParty\AsposeHelper\x64\Release\AsposeHelper.lib
-C:\Projects\PDFMaker\Plugins\AsposePDF\Source\ThirdParty\AsposeHelper\x64\Release\AsposeHelper.EXP
-C:\Projects\PDFMaker\Plugins\AsposePDF\Source\ThirdParty\AsposeHelper\AsposeHelper\x64\Release\AsposeHelper.IPDB
-C:\Projects\PDFMaker\Plugins\AsposePDF\Source\ThirdParty\AsposeHelper\AsposeHelper\x64\Release\AsposeHelper.iobj
+^C:\PROJECTS\ASPOSEHELPER\ASPOSEHELPER\X64\RELEASE\ASPOSEHELPER.OBJ|C:\PROJECTS\ASPOSEHELPER\ASPOSEHELPER\X64\RELEASE\DLLMAIN.OBJ|C:\PROJECTS\ASPOSEHELPER\ASPOSEHELPER\X64\RELEASE\PCH.OBJ
+C:\Projects\AsposeHelper\x64\Release\AsposeHelper.lib
+C:\Projects\AsposeHelper\x64\Release\AsposeHelper.EXP
+C:\Projects\AsposeHelper\AsposeHelper\x64\Release\AsposeHelper.IPDB
+C:\Projects\AsposeHelper\AsposeHelper\x64\Release\AsposeHelper.iobj

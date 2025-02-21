@@ -10,10 +10,7 @@ public class AsposePDFLibrary : ModuleRules
 		Type = ModuleType.External;
 
 		PublicAdditionalLibraries.Add(Path.Combine(ModuleDirectory, "x64", "Release", "AsposeHelper.lib"));
-		
-		PublicDelayLoadDLLs.Add("AsposeHelper.dll");
-		RuntimeDependencies.Add(Path.Combine(ModuleDirectory, "x64", "Release", "AsposeHelper.dll"));
-		
+
 		PublicDelayLoadDLLs.Add("codeporting.translator.cs2cpp.framework_vc14x64.dll");
 		RuntimeDependencies.Add(Path.Combine(ModuleDirectory, "x64", "Release", "codeporting.translator.cs2cpp.framework_vc14x64.dll"));
 		
@@ -22,5 +19,8 @@ public class AsposePDFLibrary : ModuleRules
 		
 		PublicDelayLoadDLLs.Add("Aspose.Pdf.Cpp_vc14x64.dll");
 		RuntimeDependencies.Add(Path.Combine(ModuleDirectory, "x64", "Release", "Aspose.Pdf.Cpp_vc14x64.dll"));
+		
+		PublicDelayLoadDLLs.Add("AsposeHelper.dll");
+		RuntimeDependencies.Add(Path.Combine(ModuleDirectory, "x64", "Release", "AsposeHelper.dll"));
 	}
 }

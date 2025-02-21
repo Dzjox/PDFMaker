@@ -20,5 +20,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void CreatePPTX(TArray<FString> Lines, FString ImagePath);
-	
+
+	UFUNCTION(BlueprintCallable)
+	UTexture2D* LoadTextureFromFile(const FString& FullFilePath);
 };

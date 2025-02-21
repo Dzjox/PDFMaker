@@ -24,6 +24,9 @@
     <ClInclude Include="AsposeHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Aspose.Pdf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -35,5 +38,9 @@
     <ClCompile Include="AsposeHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="$(MSBuildThisFileDirectory)tools\aspose_types.natvis" />
+    <Natvis Include="$(MSBuildThisFileDirectory)tools\aspose_types.natvis" />
   </ItemGroup>
 </Project>

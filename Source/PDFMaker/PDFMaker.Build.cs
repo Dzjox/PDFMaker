@@ -15,6 +15,7 @@ public class PDFMaker : ModuleRules
 			"Engine",
 			"InputCore",
 			"EnhancedInput",
+			"AsposePDF",
         });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });

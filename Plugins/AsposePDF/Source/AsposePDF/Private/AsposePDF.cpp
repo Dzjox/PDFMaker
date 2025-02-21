@@ -11,8 +11,6 @@
 
 void FAsposePDFModule::StartupModule()
 {
-	git lfs track "*.nupkg"
-	
 	const FString BaseDir = IPluginManager::Get().FindPlugin("AsposePDF")->GetBaseDir();
 	const FString LibDir = FPaths::Combine(*BaseDir, TEXT("Source/ThirdParty/AsposePDFLibrary/x64/Release"));
 

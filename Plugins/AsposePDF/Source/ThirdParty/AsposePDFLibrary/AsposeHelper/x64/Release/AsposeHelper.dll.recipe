@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Projects\PDFMaker\Plugins\AsposePDF\Source\ThirdParty\AsposeHelper\x64\Release\AsposeHelper.dll</FullPath>
+      <FullPath>C:\Projects\AsposeHelper\x64\Release\AsposeHelper.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
