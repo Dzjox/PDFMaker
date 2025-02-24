@@ -1,0 +1,30 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Force-Enable-aspose-slides-cpp)' == '' And (!$(PlatformToolset.Contains('v14')) Or '$(Platform)' != 'x64' Or '$(ApplicationType)' != '')">
+    <Disable-aspose-slides-cpp>true</Disable-aspose-slides-cpp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Force-Disable-aspose-slides-cpp)' != ''">
+    <Disable-aspose-slides-cpp>true</Disable-aspose-slides-cpp>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Disable-aspose-slides-cpp)' == ''">
+    <Link>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MSBuildThisFileDirectory)lib\Aspose.Slides_vc14x64d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(MSBuildThisFileDirectory)lib\Aspose.Slides_vc14x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include\aspose.slides.cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile>
+      <DisableSpecificWarnings>4244;4250;4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64' And '$(Disable-aspose-slides-cpp)' == ''">
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)lib\Aspose.Slides_vc14x64d.dll" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64' And '$(Disable-aspose-slides-cpp)' == ''">
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)lib\Aspose.Slides_vc14x64.dll" />
+  </ItemGroup>
+  <Target Name="PlatformCheck" BeforeTargets="PrepareForBuild">
+    <Error Condition="'$(Platform)' != 'Win32' And '$(Platform)' != 'x64'" Text="Aspose.Slides for C++ Library error: Only 'Win32' and 'x64' platforms are supported." />
+    <Error Condition="!$(PlatformToolset.Contains('v14'))" Text="Aspose.Slides for C++ Library error: Only 'v14x' toolsets are supported." />
+  </Target>
+</Project>

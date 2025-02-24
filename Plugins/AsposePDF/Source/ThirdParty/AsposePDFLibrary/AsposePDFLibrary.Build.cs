@@ -20,6 +20,9 @@ public class AsposePDFLibrary : ModuleRules
 		PublicDelayLoadDLLs.Add("Aspose.Pdf.Cpp_vc14x64.dll");
 		RuntimeDependencies.Add(Path.Combine(ModuleDirectory, "x64", "Release", "Aspose.Pdf.Cpp_vc14x64.dll"));
 		
+		PublicDelayLoadDLLs.Add("Aspose.Slides_vc14x64.dll");
+		RuntimeDependencies.Add(Path.Combine(ModuleDirectory, "x64", "Release", "Aspose.Slides_vc14x64.dll"));
+		
 		PublicDelayLoadDLLs.Add("AsposeHelper.dll");
 		RuntimeDependencies.Add(Path.Combine(ModuleDirectory, "x64", "Release", "AsposeHelper.dll"));
 	}

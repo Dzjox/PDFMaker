@@ -16,4 +16,5 @@ private:
 	void*	LibraryHandle_AsposePdfCpp;
 	void*	LibraryHandle_AsposeCpp;
 	void*	LibraryHandle_CodeportingTranslator;
+	void*	LibraryHandle_AsposeSlides;
 };

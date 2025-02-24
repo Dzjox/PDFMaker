@@ -19,7 +19,6 @@ void FAsposePDFModule::StartupModule()
 	if (!LibraryHandle_CodeportingTranslator)
 	{
 		FMessageDialog::Open(EAppMsgType::Ok, LOCTEXT("ThirdPartyLibraryError", "CodeportingTranslatorPath"));
-		UE_LOG(LogTemp,Warning, TEXT("CodeportingTranslatorPath = %s"), *CodeportingTranslatorPath);
 	}
 
 	FString AsposeCppPath = FPaths::Combine(*LibDir, TEXT("aspose_cpp_vc14x64.dll"));
@@ -36,6 +35,13 @@ void FAsposePDFModule::StartupModule()
 		FMessageDialog::Open(EAppMsgType::Ok, LOCTEXT("ThirdPartyLibraryError", "Failed to Aspose.Pdf.Cpp_vc14x64.dll"));
 	}
 	
+	FString AsposeSlidesPath = FPaths::Combine(*LibDir, TEXT("Aspose.Slides_vc14x64.dll"));
+	LibraryHandle_AsposeSlides = !AsposeSlidesPath.IsEmpty() ? FPlatformProcess::GetDllHandle(*AsposeSlidesPath) : nullptr;
+	if (!LibraryHandle_AsposeSlides)
+	{
+		FMessageDialog::Open(EAppMsgType::Ok, LOCTEXT("ThirdPartyLibraryError", "Failed to Aspose.Slides_vc14x64.dll"));
+	}
+	
 	FString AsposeHelperPath = FPaths::Combine(*LibDir, TEXT("AsposeHelper.dll"));
 	LibraryHandle_AsposeHelper = !AsposeHelperPath.IsEmpty() ? FPlatformProcess::GetDllHandle(*AsposeHelperPath) : nullptr;
 	if (!LibraryHandle_AsposeHelper)
@@ -50,11 +56,13 @@ void FAsposePDFModule::ShutdownModule()
 	FPlatformProcess::FreeDllHandle(LibraryHandle_AsposePdfCpp);
 	FPlatformProcess::FreeDllHandle(LibraryHandle_AsposeCpp);
 	FPlatformProcess::FreeDllHandle(LibraryHandle_CodeportingTranslator);
+	FPlatformProcess::FreeDllHandle(LibraryHandle_AsposeSlides);
 	
 	LibraryHandle_AsposeHelper = nullptr;
 	LibraryHandle_AsposePdfCpp = nullptr;
 	LibraryHandle_AsposeCpp = nullptr;
 	LibraryHandle_CodeportingTranslator = nullptr;
+	LibraryHandle_AsposeSlides = nullptr;
 }
 
 #undef LOCTEXT_NAMESPACE

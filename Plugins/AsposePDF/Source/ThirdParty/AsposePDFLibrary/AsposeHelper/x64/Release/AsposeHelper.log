@@ -5,6 +5,6 @@
      Creating library C:\Projects\AsposeHelper\x64\Release\AsposeHelper.lib and object C:\Projects\AsposeHelper\x64\Release\AsposeHelper.exp
   Generating code
   Previous IPDB not found, fall back to full compilation.
-  All 311 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 595 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   AsposeHelper.vcxproj -> C:\Projects\AsposeHelper\x64\Release\AsposeHelper.dll
